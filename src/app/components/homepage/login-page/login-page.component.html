@@ -1,0 +1,19 @@
+
+<div class="container myContainer">
+<ul class="nav nav-tabs MyTabs">
+  <li class="nav-item">
+    <a class="nav-link"
+       routerLink = '/login'
+       routerLinkActive = 'active'
+       [routerLinkActiveOptions] ={exact:true}
+    ><span>Login </span><img src="http://www.ecovadis.com/wp-content/themes/ecovadis/images/Icon-user.png"/></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link"
+       routerLink='/login/signup'
+       routerLinkActive='active'><span>sign up </span><img src="http://trans.mfgtrade.com/images/large-icon-user.png"/></a>
+  </li>
+</ul>
+
+<router-outlet></router-outlet>
+</div>

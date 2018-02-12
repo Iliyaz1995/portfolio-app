@@ -1,0 +1,81 @@
+@import "app/components/less/variables.less";
+
+
+.active{background-color: rgba(0,0,0,0.1)}
+
+.errorPopUp{
+	span{
+		color: #ff7c7c;
+		position: absolute;
+		right:  0;
+		background-color:#b5ffe0;
+		padding: 0.2vw;
+		border-radius: 5px;
+	}
+}
+
+body{
+	background:@color-1st;
+	margin:0;
+	font-family:"Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
+	color:#fff;
+	padding-left:@menu-width-desktop;
+}
+
+main{
+	position:relative;
+	height:100vh;
+  background-color: #b5ffe0;
+
+	.main-content{
+		position:absolute;
+		top:50%;
+		left:50%;
+		transform:translate3d(-50%,-50%,0);
+    width: 70%;
+
+	}
+}
+
+
+@media screen and (max-width:900px) and (min-width:400px){
+  main{
+  .main-content{
+		position:absolute;
+		top:50%;
+		left:50%;
+		transform:translate3d(-50%,-50%,0);
+    width: 90%;
+
+	}
+  }
+	body{
+		padding-left:@menu-width-tablet;
+	}
+}
+
+@media screen and (max-width:400px){
+  main{
+  .main-content{
+		position:absolute;
+		top:50%;
+		left:50%;
+		transform:translate3d(-50%,-50%,0);
+    width: 90%;
+
+	}
+  }
+	body{
+		padding-left:0;
+	}
+
+}
+
+.loading{
+	text-align: center;
+	img{
+	width: 20vh;
+	position: relative;
+	top:40vh;
+  }
+}

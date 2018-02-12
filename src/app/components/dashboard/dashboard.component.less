@@ -1,0 +1,47 @@
+@import "../less/variables.less";
+
+.logout-btn{
+  position: fixed;
+  right: 0;
+  top: 5%;
+  z-index: 2;
+button{
+  border-radius: 0;
+  transition: all 0.15s ease-in-out;
+  background-color: @color-2nd;
+  border: 0;
+
+  &:hover{
+    padding-right:40px;
+  }
+}
+img{
+  height: 25px;
+  padding-right: 20px;
+  }
+ }
+
+@media screen and (max-width:400px){
+
+
+.logout-btn{
+  top:0;
+  right: -10px;
+
+
+  span{
+    display: none;
+   }
+
+&:hover{
+  span{display: inline;}
+}
+
+&:focus{
+  span{display: none;
+       text-decoration: underline;}
+}
+ }
+
+
+}
