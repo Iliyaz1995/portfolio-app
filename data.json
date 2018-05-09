@@ -1,0 +1,83 @@
+{
+"candidates" : {
+
+    "iliyaz1995": {
+        "username": "iliyaz1995",
+        "fullname": "iliyaz syed",
+        "password": "12345678",
+        "email": "iliyaz.syed1995@gmail.com",
+        "dp": "https://lh3.googleusercontent.com/-fsPXAtkuEmQ/VSOXf3MdcCI/AAAAAAAAAv4/4DQ3SRDqnRY/w2009-h2012/20141219_113950.jpg",
+        "secQuetion": "pet",
+        "secAnswer": "minnu",
+        "projects": {
+            "facebook": {
+                "link": "https://www.facebook.com",
+                "techs": [
+                    "html",
+                    "css",
+                    "javascript",
+                    "php"
+                ]
+            },
+            "movie finder": {
+                "link": "https://basicmoviefinder.herokuapp.com/",
+                "techs": [
+                    "html",
+                    "css",
+                    "javascript",
+                    "angular"
+                ]
+            }
+        },
+        "resume": {
+            "school": "saint pauls high school",
+            "technologies": [
+                "javascript",
+                "angular",
+                "jquery",
+                "reactJS"
+            ]
+        }
+    },
+
+        "someone-1": {
+            "username": "someone-1",
+            "fullname": "someone one",
+            "password": "12345678",
+            "email": "someone1995@gmail.com",
+            "dp": "https://lh3.googleusercontent.com/-fsPXAtkuEmQ/VSOXf3MdcCI/AAAAAAAAAv4/4DQ3SRDqnRY/w2009-h2012/20141219_113950.jpg",
+            "secQuetion": "pet",
+            "secAnswer": "micky",
+            "projects": {
+                "facebook": {
+                    "link": "https://www.facebook.com",
+                    "techs": [
+                        "html",
+                        "css",
+                        "javascript",
+                        "php"
+                    ]
+                },
+                "movie finder": {
+                    "link": "https://basicmoviefinder.herokuapp.com/",
+                    "techs": [
+                        "html",
+                        "css",
+                        "javascript",
+                        "angular"
+                    ]
+                }
+            },
+            "resume": {
+                "school": "saint pauls high school",
+                "technologies": [
+                    "javascript",
+                    "angular",
+                    "jquery",
+                    "reactJS"
+                ]
+            }
+        }
+  }
+  
+} 

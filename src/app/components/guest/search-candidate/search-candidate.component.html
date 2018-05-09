@@ -1,0 +1,27 @@
+<div class="searchbar">
+  <form [formGroup]='searchForm'>
+  <mat-form-field class="searchInput">
+    <input type="text" matInput placeholder="search the candidate"  formControlName="search">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+  </form>
+</div>
+
+<div class="container searchScreen">
+  <div class="row">
+    <div class="col-md-12 guestContext" *ngIf="searchForm.value.search ==''">
+      <p>Welcome to <span class="headingInContext">Web Portfolio app</span>. Enter your candidate fullname or username (<i class="headingInContext">optional for accuracy</i>) to view his or her porfolio and resume. We hope you will get what you are looking for.</p>
+    </div>
+
+    <div class="spinnerLoader" *ngIf="searchForm.value.search !=='' && userData == undefined">
+      <fa name="spinner" animation="spin" size="5x"></fa>
+    </div>
+
+    <div *ngIf="userData !== undefined">
+      <h3>username: {{userData.username}}</h3>
+      <h3>full name: {{userData.fullname}}</h3>
+      <img src="{{userData.image}}" alt="dp" width="100px">
+      <button routerLink="./candidate/{{userData.username}}">view</button>
+    </div>
+  </div>
+</div>

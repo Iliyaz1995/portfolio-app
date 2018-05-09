@@ -1,0 +1,16 @@
+<nav class="menu" tabindex="0">
+    <div class="smartphone-menu-trigger"></div>
+        <ul>
+            <li tabindex="0" class="icon-dashboard" routerLinkActive="active" routerLink="">
+                <span>Home</span>
+            </li>
+        </ul>
+</nav>
+<div class="container homemain">
+    <div class="topContent">
+      <button mat-button (click)="openDialog()" class="homeInputs"><span>Enter As Member</span></button>
+    </div>
+    <div class="bottomContent">
+      <button mat-button routerLink='/guest' class="homeInputs"><span>Enter As Guest</span></button>
+    </div>
+</div>

@@ -1,21 +1,14 @@
 @import "app/components/less/variables.less";
-
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 .active{background-color: rgba(0,0,0,0.1)}
 
-.errorPopUp{
-	span{
-		color: #ff7c7c;
-		position: absolute;
-		right:  0;
-		background-color:#b5ffe0;
-		padding: 0.2vw;
-		border-radius: 5px;
-	}
+button:focus {
+     outline: 0px; 
 }
 
 body{
-	background:@color-1st;
+	background:@main-background;
 	margin:0;
 	font-family:"Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
 	color:#fff;
@@ -71,11 +64,21 @@ main{
 
 }
 
-.loading{
-	text-align: center;
-	img{
-	width: 20vh;
-	position: relative;
-	top:40vh;
-  }
+
+
+*::-webkit-scrollbar-track{
+	-webkit-scrollbar-track-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #ddffe2;
+}
+
+*::-webkit-scrollbar{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+*::-webkit-scrollbar-thumb{
+	border-radius: 10px;
+	-webkit-scrollbar-track-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: @color-2nd;
 }

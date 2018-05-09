@@ -1,33 +1,77 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule} from '@angular/forms';
-import {Routes,RouterModule} from '@angular/Router'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { Routes,RouterModule } from '@angular/router'
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from "angularfire2/auth";
+import 'hammerjs';
+import {
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule
+} from '@angular/material';
 
 
 import { AppComponent } from './app.component';
 import { ResumeComponent } from './components/dashboard/resume/resume.component';
 import { ProjectsComponent } from './components/dashboard/projects/projects.component';
 import { NavigationComponent } from './components/dashboard/navigation/navigation.component';
-import { LoginPageComponent } from './components/homepage/login-page/login-page.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { HomepageComponent } from './components/homepage/homepage.component';
-import { GuestEnterComponent } from './components/homepage/guest-enter/guest-enter.component';
-import { HomepageNavigationComponent } from './components/homepage/homepage-navigation/homepage-navigation.component';
-import { SignupPageComponent } from './components/homepage/login-page/signup-page/signup-page.component';
-import { LoginFormComponent } from './components/homepage/login-page/login-form/login-form.component';
-import { WelcomepageComponent } from './components/homepage/welcomepage/welcomepage.component';
+import { LandingpageComponent } from './components/landingpage/landingpage.component';
+import { LoginFormComponentDialog } from "./components/landingpage/login-form/login-form.component";
+import { ForgotpasswordComponent } from "./components/landingpage/login-form/forgotpassword/forgotpassword.component";
+import { CdkTableModule } from '@angular/cdk/table';
+import { GuestComponent } from './components/guest/guest.component';
+import { CandidateComponent } from './components/guest/candidate/candidate.component';
+import { SearchCandidateComponent } from './components/guest/search-candidate/search-candidate.component';
+import { SearchCandidateService } from './components/guest/search-candidate/services/search-candidate.service';
+import { HttpClientModule } from '@angular/common/http';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { myAuthGuard } from './auth.service';
 
 
-var appRoutes:Routes = [
-  { path:'', component: HomepageComponent,children:[
-    {path:'', component: WelcomepageComponent},
-    {path:'login', component: LoginPageComponent, children:[
-      {path:'', component:LoginFormComponent},
-      {path:'signup', component: SignupPageComponent}
-    ]},
-    {path:'guestenter', component:GuestEnterComponent}
+
+let appRoutes:Routes = [
+  { path: '', component: LandingpageComponent },
+  { path: 'guest', component: GuestComponent,children:[
+    { path: '', component: SearchCandidateComponent },
+    { path: 'candidate/:username', component: CandidateComponent },
   ] },
-  { path:'dashboard', component: DashboardComponent, children:[
+  {
+    path: 'dashboard', component: DashboardComponent, canActivate: [myAuthGuard], children:[
     { path:'user', component: ResumeComponent },
     { path:'projects', component: ProjectsComponent }
   ]},
@@ -39,21 +83,68 @@ var appRoutes:Routes = [
     ResumeComponent,
     ProjectsComponent,
     NavigationComponent,
-    LoginPageComponent,
     DashboardComponent,
-    GuestEnterComponent,
-    HomepageComponent,
-    HomepageNavigationComponent,
-    SignupPageComponent,
-    LoginFormComponent,
-    WelcomepageComponent
+    LandingpageComponent,
+    LoginFormComponentDialog,
+    ForgotpasswordComponent,
+    GuestComponent,
+    CandidateComponent,
+    SearchCandidateComponent
   ],
   imports: [
+    HttpClientModule ,
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes),
+    AngularFontAwesomeModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    CdkTableModule,
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule
   ],
-  providers: [],
+  exports: [
+    
+  ],
+  entryComponents:[
+    LoginFormComponentDialog,
+    ForgotpasswordComponent
+  ],
+  providers: [SearchCandidateService, myAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

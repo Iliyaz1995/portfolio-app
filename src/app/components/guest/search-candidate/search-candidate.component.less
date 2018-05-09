@@ -1,0 +1,56 @@
+@import "../../less/variables.less";
+
+
+.searchbar{
+text-align: center;
+padding: 10vh 0 0 0;
+color: rgba(0,0,0,0.6);
+
+  .searchInput{
+    width: 80%;
+    text-align: center;
+    margin: auto;
+
+    .mat-form-field-label {
+        color: rgba(0,0,0,.6);
+     }
+
+    .mat-form-field-ripple{
+        background-color:@color-2nd
+    }
+  }
+
+
+.searchInput.mat-form-field-invalid{
+    .mat-form-field-ripple{
+    background-color:red!important;
+    }
+}
+}
+
+.guestContext{
+        color: rgba(0,0,0,.6);
+        text-align: center;
+        margin-top: 35vh;
+ p{
+     width: 80%;
+     margin: auto;
+ }
+ .headingInContext{
+    color: @main-background;
+  }
+}
+
+
+.searchScreen{
+    background-color: @color-1st;
+    height: 75vh;
+    overflow: auto;
+    width: 90%;
+}
+
+.spinnerLoader{
+    text-align: center;
+    margin: auto;
+    margin-top: 32vh;
+}

@@ -1,0 +1,122 @@
+<div mat-dialog-content>
+    <mat-tab-group class="SigninOrSignUp">
+      <mat-tab label="sign in">
+         <ng-template mat-tab-label>
+          <fa name="sign-in" size="1x"></fa><span>Login</span>
+         </ng-template>
+         <div class="container">
+          <div class="loginForm">
+            <form [formGroup]='loginForm' (ngSubmit)='onLoginSubmit()'>
+               <mat-form-field class="dialogInputs">
+                 <input matInput placeholder="username" formControlName="username">
+                    <mat-error *ngIf="loginForm.controls['username'].hasError('required')">
+                      username is required
+                    </mat-error>
+               </mat-form-field><br>
+               <mat-form-field class="dialogInputs">
+                 <input matInput placeholder="password" type="password" formControlName="password">
+                   <fa *ngIf="loginForm.controls['password'].pending" name="spinner" animation="spin" size="2x" style="color:#5bc995"></fa>
+                    <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+                      password is required
+                   </mat-error>
+                   <mat-error *ngIf="loginForm.controls['password'].hasError('minlength')" >
+                      password requires min 8 letters
+                   </mat-error>
+               </mat-form-field><br>
+               <span class="forgotQuestion" (click)="forgotpassword()">forgot password?</span>
+              <button routerLink='' mat-button type="submit" class="dialogInputs"><span>Log in</span></button>
+            </form> 
+          </div>
+         </div>
+      </mat-tab>
+
+      <mat-tab label="sign up">
+        <ng-template mat-tab-label>
+          <fa name="user-plus" size="1x"></fa><span>Sign up</span>
+        </ng-template>
+        <div class="container">
+          <div class="signupForm">
+            <form [formGroup]='signUpForm' (submit)="onSignUpFormSubmit()">
+             <div class="formInputs" #formInputs>
+              <mat-form-field class="dialogInputs">
+                <input matInput placeholder="username" formControlName="username">
+                    <fa matSuffix *ngIf="signUpForm.controls['username'].valid" name="check" style="color:#5bc995;"></fa>
+                    <fa *ngIf="signUpForm.controls['username'].hasError('usernameUnavailable')" matSuffix name="times" size="1x" style="color:red; font-weight:100;"></fa>
+                    <fa *ngIf="signUpForm.controls['username'].pending" matSuffix name="spinner" animation="spin" size="1x" style="color:#5bc995"></fa>
+                    <mat-error *ngIf="signUpForm.controls['username'].hasError('usernameUnavailable')">
+                      Username taken please select another
+                    </mat-error>
+                    <mat-error *ngIf="signUpForm.controls['username'].hasError('required')">
+                      username is required
+                    </mat-error>
+              </mat-form-field>
+              <br>
+
+              <mat-form-field class="dialogInputs">
+                <input matInput placeholder="full name" formControlName="fullname">
+                    <fa matSuffix *ngIf="signUpForm.controls['fullname'].valid" name="check" style="color:#5bc995;"></fa>
+                <mat-error *ngIf="signUpForm.controls['fullname'].hasError('required')">
+                  username is required
+                </mat-error>
+              </mat-form-field>
+              <br>
+
+              <mat-form-field class="dialogInputs">
+                 <input matInput placeholder="email" type="email" formControlName="email">
+                    <fa matSuffix *ngIf="signUpForm.controls['email'].valid" name="check" style="color:#5bc995;"></fa>
+                    <fa *ngIf="signUpForm.controls['email'].hasError('emailUnavailable')" matSuffix name="times" size="1x" style="color:red; font-weight:100;"></fa>
+                    <fa *ngIf="signUpForm.controls['email'].pending" matSuffix name="spinner" animation="spin" size="1x" style="color:#5bc995"></fa>
+                    <mat-error *ngIf="signUpForm.controls['email'].hasError('emailUnavailable')">
+                      email already used
+                    </mat-error>
+                <mat-error *ngIf="signUpForm.controls['email'].hasError('required')">
+                  email is required
+                </mat-error>
+                <mat-error *ngIf="!signUpForm.controls['email'].hasError('required') && signUpForm.controls['email'].hasError('email')">
+                  enter a valid email
+                </mat-error>
+              </mat-form-field>
+              <br>
+
+              <mat-form-field  class="dialogInputs"  *ngIf="signUpForm.controls['securityQuestion'].value ===''">
+                <mat-select placeholder="Question" formControlName="securityQuestion">
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let question of questions" [value]="question">
+                    {{question.question}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="signUpForm.controls['securityQuestion'].hasError('required')">Please choose an question</mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="dialogInputs" *ngIf="signUpForm.controls['securityQuestion'].value !==''">
+                <input 
+                matInput 
+                placeholder="{{signUpForm.controls['securityQuestion'].value.placeholder}}" formControlName="securityAnswer">
+                <mat-error *ngIf="signUpForm.controls['securityAnswer'].hasError('required')">
+                  answer is required
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="dialogInputs">
+                <input matInput placeholder="password" type="password" formControlName="password">
+                <mat-error *ngIf="signUpForm.controls['password'].hasError('required')">
+                  password is required
+                </mat-error>
+                <mat-error *ngIf="signUpForm.controls['password'].hasError('minlength')">
+                  password requires min 8 letters
+                </mat-error>
+              </mat-form-field>
+              <br>
+            </div>
+                <button mat-button type="submit" class="dialogInputs">
+                  <span>sign up</span>
+                </button>
+            </form>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onsiginInCancel()" class="cancel-btn-login">cancel</button>
+</div>

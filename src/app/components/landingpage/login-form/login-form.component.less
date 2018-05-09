@@ -1,0 +1,83 @@
+@import "../../less/variables.less";
+
+.forgotQuestion{
+    color: rgba(0,0,0,.5);
+    cursor: pointer;
+    float: right;
+    margin-bottom: 5px;
+    &:hover{
+        color: @color-1st
+    }
+}
+
+.formInputs{
+    padding-right:15px;
+    max-height: 250px;
+    overflow: auto;
+}
+.mat-tab-group.mat-primary .mat-tab-label:not(.mat-tab-disabled):focus, .mat-tab-group.mat-primary .mat-tab-link:not(.mat-tab-disabled):focus, .mat-tab-nav-bar.mat-primary .mat-tab-label:not(.mat-tab-disabled):focus, .mat-tab-nav-bar.mat-primary .mat-tab-link:not(.mat-tab-disabled):focus {
+    background-color: #ddffe2;
+}
+
+.loginForm, .signupForm{
+    margin: 2vw 6vw;
+}
+
+.dialogInputs{
+    width: 100%;
+
+    .mat-form-field-label {
+        color: rgba(0,0,0,.54);
+     }
+
+    .mat-form-field-ripple{
+        background-color:@color-2nd
+    }
+}
+
+.dialogInputs.mat-form-field-invalid{
+    .mat-form-field-ripple{
+    background-color:red!important;
+    }
+}
+
+.dialogInputs.mat-button{
+    background-color:@color-2nd;
+    color: white;
+    padding: 0px 0;
+    
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar{
+	background-color :@color-2nd ;
+}
+
+.mat-tab-label-active{
+  background-color: #ddffe2
+}
+
+.mat-dialog-container{
+  background-color: @main-background;
+}
+
+.mat-tab-body-wrapper{
+  background-color: #ddffe2
+}
+
+.cancel-btn-login{
+    float: right;
+    background-color: @warn-color;
+    color: white;
+    width: 100%;
+    margin: auto;
+    padding: 0px 0;
+}
+
+@media screen and (max-width:400px){
+.forgotQuestion{
+    font-size: 12px;
+  }
+.loginForm, .signupForm{
+    margin: 2vw 0vw;
+  }
+}

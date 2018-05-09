@@ -1,0 +1,18 @@
+<nav class="menu" tabindex="0">
+  <div class="smartphone-menu-trigger"></div>
+  <ul>
+    <li tabindex="0" class="icon-search" routerLinkActive="active" routerLink="./" [routerLinkActiveOptions]="{exact: true}">
+      <span>Search</span>
+    </li>
+    <li tabindex="0" class="icon-candidate" routerLinkActive="active" routerLink="./candidate/iliyaz1995">
+      <span>Candidate</span>
+    </li>
+    <li tabindex="0" class="icon-login" routerLinkActive="active" routerLink="../" [routerLinkActiveOptions]="{exact: true}">
+      <span>Log in</span>
+    </li>
+  </ul>
+</nav>
+
+<div class="container homemain">
+<router-outlet></router-outlet>
+</div>
